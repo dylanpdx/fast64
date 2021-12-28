@@ -2955,7 +2955,7 @@ class SPVertex:
 		if not static and bpy.context.scene.decomp_compatible:
 			header += 'segmented_to_virtual(' + self.vertList.name + ' + ' + str(self.offset) + ')'
 		else:
-			header += self.vertList.name + ' + ' + str(self.offset)
+			header += "(char*)"+self.vertList.name + ' + ' + str(self.offset)+"*sizeof(Vtx)"
 		return header + ", " + \
 			str(self.count) + ', ' + str(self.index) + ')'
 
